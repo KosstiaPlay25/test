@@ -1,0 +1,26 @@
+
+local response = syn.request(
+    {
+        Url = "https://discord.com/api/webhooks/1039889978165055488/NlOUoPD2Ge7Su1Lee6MsQxlcWcC0Unphwcn8hEak9SuQeQfJ432TbKZV917q5YOAw7Wv",  -- This website helps debug HTTP requests
+        Method = "POST",
+        Headers = {
+            ["Content-Type"] = "application/json"  -- When sending JSON, set this!
+        },
+        Body = game:GetService("HttpService"):JSONEncode({
+               ['embeds'] = {{
+               ['title'] = "**Player executed the script**",
+               ['description'] = game.Players.LocalPlayer.Name.." has executed the script",
+               ['type'] = "rich",
+               ["color"] = tonumber(0xFF69B4),
+               ["fields"] = {
+                   {
+                       ["name"] = "Hardware ID:",
+                       ["value"] = game:GetService("RbxAnalyticsService"):GetClientId(),
+                       ["inline"] = true
+                   }
+               },
+            }}
+        })
+    }
+)
+ 

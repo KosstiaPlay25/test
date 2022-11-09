@@ -1,0 +1,120 @@
+local cheatsf = Instance.new("Folder", game.CoreGui) cheatsf.Name = "cheats"
+local espf = Instance.new("Folder", cheatsf) espf.Name = "esp"
+
+local function addESP(v,color,namesss)
+    	local bbg = Instance.new("BillboardGui")
+        	bbg.Parent = espf
+        	bbg.Name = v.Name
+	        bbg.AlwaysOnTop = true
+          	bbg.Size = UDim2.new(4,0,5.4,0)
+        	bbg.ClipsDescendants = false
+	
+
+        	local outlines = Instance.new("Frame", bbg)
+        	outlines.Size = UDim2.new(1,0,1,0)
+        	outlines.BorderSizePixel = 0
+        	outlines.BackgroundTransparency = 1
+        	local left = Instance.new("Frame", outlines)
+        	left.BorderSizePixel = 0
+        	left.Size = UDim2.new(0,1,1,0)
+        	local right = left:Clone()
+        	right.Parent = outlines
+        	right.Size = UDim2.new(0,-1,1,0)
+        	right.Position = UDim2.new(1,0,0,0)
+	        local up = left:Clone()
+           	up.Parent = outlines
+	        up.Size = UDim2.new(1,0,0,1)
+        	local down = left:Clone()
+        	down.Parent = outlines
+        	down.Size = UDim2.new(1,0,0,-1)
+        	down.Position = UDim2.new(0,0,1,0)
+	
+        	local info = Instance.new("BillboardGui", bbg)
+        	info.Name = "info"
+        	info.Size = UDim2.new(3,0,0,54)
+        	info.StudsOffset = Vector3.new(3.6,-3,0)
+        	info.AlwaysOnTop = true
+        	info.ClipsDescendants = false
+        	local namelabel = Instance.new("TextLabel", info)
+        	namelabel.Name = "namelabel"
+	        namelabel.BackgroundTransparency = 1
+	        namelabel.TextStrokeTransparency = 0
+	        namelabel.TextColor3 = color
+        	namelabel.TextXAlignment = Enum.TextXAlignment.Left
+        	namelabel.Size = UDim2.new(0,100,0,18)
+        	namelabel.Position = UDim2.new(0,0,0,0)
+        	namelabel.Text = namesss
+    
+	    
+	
+        	local uill = Instance.new("UIListLayout", info)
+     bbg.Adornee = v
+            info.Adornee = v
+            forhealth.Adornee = v
+                    
+    
+            bbg.Enabled = true
+            namelabel.Enabled = true
+            info.Enabled = true
+   
+end    
+
+for i,v in pairs(workspace.Effects:GetDescendants()) do
+   if v.ClassName == "Model" and v:FindFirstChild('Top') and v:FindFirstChild('Lock')  then
+        local co = coroutine.create(function()
+             for count,chest in pairs(v:GetChildren()) do
+                 if chest:IsA("MeshPart") and espf:FindFirstChild(chest.Name) == nil then
+                    -- print(chest.MeshId)
+                   if chest.MeshId == "rbxassetid://10779253534" then
+                       --   print(chest)
+                          --addESP(chest,Color3.fromRGB(255, 255, 255),"Common")
+                       end
+                    if chest.MeshId == "rbxassetid://10788852296" then
+                  
+                          addESP(chest,Color3.fromRGB(0, 0, 255),"Rare")
+                     end
+                     if chest.MeshId == "rbxassetid://10858352843" then
+                       --   print("no")
+                      -- addESP(chest,Color3.fromRGB(255, 255, 0),"Uncommon")
+                     end   
+                     if chest.MeshId ~= "rbxassetid://10858352843" and chest.MeshId ~= "rbxassetid://10788852296" and chest.MeshId ~= "rbxassetid://10779253534" then
+                          addESP(chest,Color3.fromRGB(255,0, 0),"Legendary")
+                     end
+                 end         
+             end     
+         end)
+         coroutine.resume(co) 
+   end
+   
+end
+
+while wait(.1) do
+    for i,v in pairs(workspace.Effects:GetDescendants()) do
+   if v.ClassName == "Model" and v:FindFirstChild('Top') and v:FindFirstChild('Lock')  then
+        local co = coroutine.create(function()
+             for count,chest in pairs(v:GetChildren()) do
+                 if chest:IsA("MeshPart") and espf:FindFirstChild(chest.Name) == nil then
+                    -- print(chest.MeshId)
+                   if chest.MeshId == "rbxassetid://10779253534" then
+                       --   print(chest)
+                       --    addESP(chest,Color3.fromRGB(255, 255, 255),"Common")
+                       end
+                    if chest.MeshId == "rbxassetid://10788852296" then
+                     
+                          addESP(chest,Color3.fromRGB(0, 0, 255),"Rare")
+                     end
+                     if chest.MeshId == "rbxassetid://10858352843" then
+                       --   print("no")
+                     --  addESP(chest,Color3.fromRGB(255, 255, 0),"Uncommon")
+                     end   
+                     if chest.MeshId ~= "rbxassetid://10858352843" and chest.MeshId ~= "rbxassetid://10788852296" and chest.MeshId ~= "rbxassetid://10779253534" then
+                          addESP(chest,Color3.fromRGB(255,0, 0),"Legendary")
+                     end
+                 end         
+             end     
+         end)
+         coroutine.resume(co) 
+   end
+   
+end
+end    
